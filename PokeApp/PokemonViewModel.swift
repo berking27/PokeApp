@@ -9,14 +9,14 @@ import Foundation
 
 @MainActor
 class PokemonViewModel: ObservableObject {
-    enum Status {
+    enum Status<T> {
         case notStarted
         case fetching
-        case success
+        case success(data: T)
         case failed(error: Error)
     }
     
-    @Published private(set) var status = Status.notStarted
+    @Published private(set) var status = Status<[TempPokemon]>.notStarted
     
     private let controller: FetchController
     
@@ -40,7 +40,7 @@ class PokemonViewModel: ObservableObject {
                 try savePokemon(pokemon)
             }
             
-            status = .success
+            status = .success(data: pokeDex)
         } catch {
             status = .failed(error: error)
         }
@@ -65,5 +65,11 @@ class PokemonViewModel: ObservableObject {
         newPokemon.favorite = false
         
         try context.save()
+    }
+    
+    
+    private func handleError(_ error: Error) {
+        print("Error: \(error.localizedDescription)")
+        status = .failed(error: error)
     }
 }
