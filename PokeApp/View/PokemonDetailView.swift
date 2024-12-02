@@ -64,10 +64,10 @@ struct PokemonDetailView: View {
                 } label: {
                     if showShiny {
                         Image(systemName: "wand.and.stars")
-                            .foregroundStyle(.yellow, .black)
+                            .foregroundStyle(.primary)
                     } else {
                         Image(systemName: "wand.and.stars.inverse")
-                            .foregroundStyle(.black, .yellow)
+                            .foregroundStyle(.secondary)
                     }
                 }
             }
