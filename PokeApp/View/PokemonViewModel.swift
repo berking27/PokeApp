@@ -12,7 +12,7 @@ class PokemonViewModel: ObservableObject {
     enum Status<T> {
         case notStarted
         case fetching
-        case success(data: T)
+        case success
         case failed(error: Error)
     }
     
@@ -32,7 +32,12 @@ class PokemonViewModel: ObservableObject {
         status = .fetching
         
         do {
-            var pokeDex = try await controller.fetchAllPokemon()
+            
+            guard var pokeDex = try await controller.fetchAllPokemon() else {
+                print("Pokemon have already been fetched")
+                status = .success
+                return
+            }
             
             pokeDex.sort { $0.id < $1.id }
             
@@ -40,7 +45,7 @@ class PokemonViewModel: ObservableObject {
                 try savePokemon(pokemon)
             }
             
-            status = .success(data: pokeDex)
+            status = .success
         } catch {
             status = .failed(error: error)
         }
@@ -54,6 +59,7 @@ class PokemonViewModel: ObservableObject {
         newPokemon.id = Int16(pokemon.id)
         newPokemon.name = pokemon.name
         newPokemon.types = pokemon.types
+        newPokemon.organizeTypes()
         newPokemon.hp = Int16(pokemon.hp)
         newPokemon.attack = Int16(pokemon.attack)
         newPokemon.defense = Int16(pokemon.defense)
