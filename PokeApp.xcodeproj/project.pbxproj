@@ -6,19 +6,94 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AA09873C2CFF9A7D00AE90A1 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA09873B2CFF9A7D00AE90A1 /* WidgetKit.framework */; };
+		AA09873E2CFF9A7D00AE90A1 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA09873D2CFF9A7D00AE90A1 /* SwiftUI.framework */; };
+		AA09874F2CFF9A7E00AE90A1 /* PokeAppWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA0987392CFF9A7D00AE90A1 /* PokeAppWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA09874D2CFF9A7E00AE90A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA8529442CFC8C90008BAC1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0987382CFF9A7D00AE90A1;
+			remoteInfo = PokeAppWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AA0987542CFF9A7E00AE90A1 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AA09874F2CFF9A7E00AE90A1 /* PokeAppWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		AA0987392CFF9A7D00AE90A1 /* PokeAppWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PokeAppWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA09873B2CFF9A7D00AE90A1 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		AA09873D2CFF9A7D00AE90A1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		AA85294C2CFC8C90008BAC1D /* PokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AA0987502CFF9A7E00AE90A1 /* Exceptions for "PokeAppWidget" folder in "PokeAppWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AA0987382CFF9A7D00AE90A1 /* PokeAppWidgetExtension */;
+		};
+		AA0987562CFF9B1900AE90A1 /* Exceptions for "PokeApp" folder in "PokeAppWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CoreData/Persistence.swift,
+				CoreData/PokeApp.xcdatamodeld,
+				Support/Assets.xcassets,
+				Utliz/SamplePokemon.swift,
+				View/FetchedImageView.swift,
+				View/WidgetPokemonView.swift,
+			);
+			target = AA0987382CFF9A7D00AE90A1 /* PokeAppWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		AA09873F2CFF9A7D00AE90A1 /* PokeAppWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AA0987502CFF9A7E00AE90A1 /* Exceptions for "PokeAppWidget" folder in "PokeAppWidgetExtension" target */,
+			);
+			path = PokeAppWidget;
+			sourceTree = "<group>";
+		};
 		AA85294E2CFC8C90008BAC1D /* PokeApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AA0987562CFF9B1900AE90A1 /* Exceptions for "PokeApp" folder in "PokeAppWidgetExtension" target */,
+			);
 			path = PokeApp;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AA0987362CFF9A7D00AE90A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA09873E2CFF9A7D00AE90A1 /* SwiftUI.framework in Frameworks */,
+				AA09873C2CFF9A7D00AE90A1 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA8529492CFC8C90008BAC1D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -29,10 +104,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA09873A2CFF9A7D00AE90A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA09873B2CFF9A7D00AE90A1 /* WidgetKit.framework */,
+				AA09873D2CFF9A7D00AE90A1 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AA8529432CFC8C90008BAC1D = {
 			isa = PBXGroup;
 			children = (
 				AA85294E2CFC8C90008BAC1D /* PokeApp */,
+				AA09873F2CFF9A7D00AE90A1 /* PokeAppWidget */,
+				AA09873A2CFF9A7D00AE90A1 /* Frameworks */,
 				AA85294D2CFC8C90008BAC1D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				AA85294C2CFC8C90008BAC1D /* PokeApp.app */,
+				AA0987392CFF9A7D00AE90A1 /* PokeAppWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +135,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AA0987382CFF9A7D00AE90A1 /* PokeAppWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0987512CFF9A7E00AE90A1 /* Build configuration list for PBXNativeTarget "PokeAppWidgetExtension" */;
+			buildPhases = (
+				AA0987352CFF9A7D00AE90A1 /* Sources */,
+				AA0987362CFF9A7D00AE90A1 /* Frameworks */,
+				AA0987372CFF9A7D00AE90A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA09873F2CFF9A7D00AE90A1 /* PokeAppWidget */,
+			);
+			name = PokeAppWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = PokeAppWidgetExtension;
+			productReference = AA0987392CFF9A7D00AE90A1 /* PokeAppWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		AA85294B2CFC8C90008BAC1D /* PokeApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA85295F2CFC8C91008BAC1D /* Build configuration list for PBXNativeTarget "PokeApp" */;
@@ -55,10 +164,12 @@
 				AA8529482CFC8C90008BAC1D /* Sources */,
 				AA8529492CFC8C90008BAC1D /* Frameworks */,
 				AA85294A2CFC8C90008BAC1D /* Resources */,
+				AA0987542CFF9A7E00AE90A1 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AA09874E2CFF9A7E00AE90A1 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				AA85294E2CFC8C90008BAC1D /* PokeApp */,
@@ -80,6 +191,9 @@
 				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
+					AA0987382CFF9A7D00AE90A1 = {
+						CreatedOnToolsVersion = 16.1;
+					};
 					AA85294B2CFC8C90008BAC1D = {
 						CreatedOnToolsVersion = 16.1;
 					};
@@ -100,11 +214,19 @@
 			projectRoot = "";
 			targets = (
 				AA85294B2CFC8C90008BAC1D /* PokeApp */,
+				AA0987382CFF9A7D00AE90A1 /* PokeAppWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AA0987372CFF9A7D00AE90A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA85294A2CFC8C90008BAC1D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +237,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AA0987352CFF9A7D00AE90A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AA8529482CFC8C90008BAC1D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +253,71 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AA09874E2CFF9A7E00AE90A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0987382CFF9A7D00AE90A1 /* PokeAppWidgetExtension */;
+			targetProxy = AA09874D2CFF9A7E00AE90A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		AA0987522CFF9A7E00AE90A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PokeAppWidget/PokeAppWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AM3BMZ58QA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PokeAppWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PokeAppWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.berkindemirel.PokeApp.PokeAppWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA0987532CFF9A7E00AE90A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PokeAppWidget/PokeAppWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AM3BMZ58QA;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PokeAppWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PokeAppWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.berkindemirel.PokeApp.PokeAppWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		AA85295D2CFC8C91008BAC1D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -249,10 +442,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_ENTITLEMENTS = PokeApp/PokeApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PokeApp/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AM3BMZ58QA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -279,10 +474,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_ENTITLEMENTS = PokeApp/PokeApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PokeApp/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AM3BMZ58QA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -307,6 +504,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AA0987512CFF9A7E00AE90A1 /* Build configuration list for PBXNativeTarget "PokeAppWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0987522CFF9A7E00AE90A1 /* Debug */,
+				AA0987532CFF9A7E00AE90A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AA8529472CFC8C90008BAC1D /* Build configuration list for PBXProject "PokeApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
