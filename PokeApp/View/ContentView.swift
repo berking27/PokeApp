@@ -9,21 +9,28 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Pokemon.id, ascending: true)],
         animation: .default)
     
     private var pokeDex: FetchedResults<Pokemon>
     
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Pokemon.id, ascending: true)],
+        predicate: NSPredicate(format: "favorite = %d", true),
+        animation: .default
+    )
+    
+    private var favorites: FetchedResults<Pokemon>
+    
+    @State var filteredByFavorites = false
     @StateObject private var pokemonViewModel = PokemonViewModel(controller: FetchController())
     
     var body: some View {
         switch pokemonViewModel.status {
         case .success:
             NavigationStack {
-                List(pokeDex) { pokemon in
+                List(filteredByFavorites ? favorites : pokeDex) { pokemon in
                     NavigationLink(value: pokemon) {
                         AsyncImage(url: pokemon.sprite) { image in
                             image
@@ -36,6 +43,11 @@ struct ContentView: View {
                         
                         Text(pokemon.name!.capitalized)
                         
+                        if pokemon.favorite {
+                            Image(systemName: "star.fill")
+                                .foregroundStyle(.yellow)
+                        }
+                        
                     }
                 }
                 .navigationTitle("Pokedex")
@@ -45,7 +57,15 @@ struct ContentView: View {
                 })
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        EditButton()
+                        Button {
+                            withAnimation {
+                                filteredByFavorites.toggle()
+                            }
+                        } label: {
+                            Image(systemName: filteredByFavorites ? "star.fill" : "star")
+                        }
+                        .font(.title)
+                        .foregroundColor(.yellow)
                     }
                 }
             }
@@ -56,12 +76,6 @@ struct ContentView: View {
     
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 #Preview {
     ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
